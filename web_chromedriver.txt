@@ -1,0 +1,28 @@
+python -m venv webcrawling 
+source webcrawling/bin/activate #가상환경 생성
+pip install selenium
+
+커널을 webdriver 커널로 들어가야합니다.
+안된다면 원격탐색기->우분투->랩
+
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb  
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get -f install
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+apt-get update
+
+WEBCRAWLING 셀에서 아래를 실행해주세요.
+
+from selenium import webdriver
+
+!google-chrome --version
+
+버전과 일치하는 파일을 찾아 설치하세요.
+
+https://chromedriver.chromium.org/downloads
+
+
+from selenium import webdriver
+driver=webdriver.Chrome("./chromedriver.exe")
