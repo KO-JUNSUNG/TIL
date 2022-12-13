@@ -1,4 +1,4 @@
-python -m venv webcrawling 
+python3 -m venv webcrawling 
 source webcrawling/bin/activate #가상환경 생성
 pip install selenium
 
