@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body>
+    <!-- . 을 통해 CSS 클래스를 가질 요소를 생성할 수 있음
+    default tag는 div 이므로 생략가능. 
+div.title == .title -->
+<div class="title"></div>
+<span class="title"></span>
+<!-- # 을 통해 id를 가질 요소를 생성 가능
+#item-->
+<div id="item"></div>
+<span id="item"></span>
+<!-- div#header+div.page+div#footer.class1.class2.class3
+  -->
+<div id="header"></div>
+<div class="page"></div>
+<div id="footer" class="class1 class2 class3"></div>
+<!-- {}를 사용하여 요소 안에 내용을 갖는 요소를 생성할 수 있음(*텍스트입력)
+a{Click me}
+p.containter{hello}-->
+<a href="">click me</a>
+<p class="container">hello</p>
+<!-- 자동넘버링. $를 사용하여 넘버링을 부여
+p.container{item$}*5-->
+<p class="container">item1</p>
+<p class="container">item2</p>
+<p class="container">item3</p>
+<p class="container">item4</p>
+<p class="container">item5</p>
+</body>
+</html>
