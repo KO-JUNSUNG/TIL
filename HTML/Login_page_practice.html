@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <div>
+            <form action="<action script or url>" method="post">
+                <label for="name">Name (4 to 8 characters)</label><br>
+                <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" placeholder="Enter your name."><br>
+                <label for="email">email</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your email."><br>
+                <label for="password">password</label><br>
+                <input type="password" id="password" name="password" placeholder="Enter your password."><br>
+                <label for="confirm_password">Confirm Password</label><br>
+                <input type="password" name="confirm_password" placeholder="Confirm your password" required><br> <!-- match 하는지 여부는 python 이나 js 같은 backend 에서 따로 구현해!-->
+                <input type="submit" value="제출">
+            </form>
+        </div>
+</body>
+</html>

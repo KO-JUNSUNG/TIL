@@ -1,0 +1,41 @@
+
+<!--radio
+라디오 항목 중 1개를 선택 가능
+선택된 항목의 value 값이 서버로 전송
+elements 중 하나를 선택하게 하려면 name 속성 값을 같은 값으로 그룹핑
+-->
+<form action="<action script or url>" method="post">
+    <ul>
+    <li><input type="radio" name="city" value="Seoul">서울</li>
+    <li><input type="radio" name="city" value="Busan">부산</li>
+    <li><input type="radio" name="city" value="Daegu">대구</li>
+    </ul>
+    <input type="submit" value="Submit">
+    </form>
+
+<br>
+<br>
+<!--text area
+여려줄의 데이터를 입력받을때 사용
+form tag와 함께 사용한다.
+-->
+
+<label for="w3review">Review of W3Schools:</label>
+<textarea id="w3review" name="w3review" rows="4" cols="50">
+At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+</textarea>
+<br>
+<br>
+
+<!--data list
+입력창에서 추천하는 선택지를 나타 낸다.
+-->
+<label for="browser">Choose your browser from the list:</label>
+<input list="browsers" name="browser" id="browser">
+<datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+</datalist>
