@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import numpy as np
 import tensorflow as tf
 import soundfile as sf
@@ -31,19 +31,15 @@ def synthesize():
     audio = mb_melgan.inference(mel_after)[0, :, 0]
     
     # Write the audio to a file
-    sf.write('./audio.wav', audio, 22050, "PCM_16")
+    sf.write('./static/audio.wav', audio, 22050, "PCM_16")
     
     # Return the path to the saved audio file
- 
-    # return jsonify({'audio_path': './audio.wav'}) # return 값이 잘못되었다. 이렇게 하면 container 내부의 audio.wav 파일이 저장되었다는 사실만 남을 뿐, 파일을 돌려받을 수 없다 --> 확인 불가능.  
+    return jsonify({'audio_path': '/static/audio.wav'})
 
-    import requests
-
-    files = open('blackpink.png', 'rb')
-
-    upload = {'file': files}
-
-    return jsonify(upload) # return 값이 잘못되었다. 
+# play
+@app.route('/play', methods=['GET'])
+def play():
+    return send_file('static/audio.wav')
 
 # host="0.0.0.0", port="8080"
 if __name__ == '__main__':

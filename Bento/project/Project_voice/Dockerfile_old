@@ -1,0 +1,30 @@
+FROM tensorflow/tensorflow:2.7.0-gpu
+
+USER root
+WORKDIR /app
+
+
+# Nvidia GPG Public Key 교체 
+RUN rm /etc/apt/sources.list.d/cuda.list 
+#   && rm /etc/apt/sources.list.d/nvidia-ml.list
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	  sudo \
+	  apt-utils 
+
+RUN apt-get install -y build-essential libsndfile-dev \
+    && apt-get install -y llvm-9-dev llvm-9-runtime llvm-9-tools libedit-dev \
+    && python3 -m pip install --upgrade pip
+RUN pip install ipython numba==0.51.2 llvmlite==0.34.0 numpy==1.19.5\
+    && apt-get install -y zsh tmux wget git libsndfile1 cmake
+
+COPY ./flask_app_voice.py /app/
+RUN git clone https://github.com/TensorSpeech/TensorFlowTTS.git 
+RUN git clone https://github.com/repodiac/german_transliterate.git
+RUN pip install tensorflow-addons==0.15.0
+RUN cd TensorFlowTTS \
+    && pip install .
+RUN pip install TensorFlowTTS soundfile pyopenjtalk flask
+# flask install 추가됨
+
+ENTRYPOINT [ "python3","flask_app_voice.py" ]
