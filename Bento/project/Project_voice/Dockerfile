@@ -28,6 +28,9 @@ WORKDIR /app
 
 COPY flask_app_voice.py /app/
 
-RUN mkdir static
+RUN mkdir static && \
+    mkdir templates
+
+COPY index.html /app/templates/
 
 CMD ["python3", "flask_app_voice.py"]

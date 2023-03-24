@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 import numpy as np
 import tensorflow as tf
 import soundfile as sf
@@ -9,6 +9,12 @@ app = Flask(__name__)
 processor = AutoProcessor.from_pretrained("tensorspeech/tts-fastspeech2-kss-ko")
 fastspeech2 = TFAutoModel.from_pretrained("tensorspeech/tts-fastspeech2-kss-ko")
 mb_melgan = TFAutoModel.from_pretrained("tensorspeech/tts-mb_melgan-kss-ko")
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 @app.route('/synthesize', methods=['POST'])
 def synthesize():
