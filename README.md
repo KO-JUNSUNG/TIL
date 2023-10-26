@@ -42,6 +42,10 @@
 - Titanic Tutorial
 
 
+
+</details>
+
+
 <details>
 <summary><strong>🎵음성처리</strong></summary>
 
