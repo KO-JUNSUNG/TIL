@@ -2,7 +2,6 @@
 + Python, Datascience 를 주로 다룹니다.
 + 음성 AI에 관심이 있습니다.
 + 현재는 파이썬 알고리즘 인터뷰 라는 책을 바탕으로 알고리즘을 공부하고 있습니다.
-+ README 를 https://github.com/boost-devs/ai-tech-interview 기반으로 깔끔하게 보이기 위해 정리중! 
 -----------------------------
 ## 분류
 
