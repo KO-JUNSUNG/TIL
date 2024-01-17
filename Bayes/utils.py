@@ -77,3 +77,13 @@ def make_poisson_pmf(lam: float, qs: list)->Pmf:
     pmf = Pmf(ps, qs)
     pmf.normalize()
     return pmf
+
+from scipy.stats import gaussian_kde
+
+def kde_from_sample(sample, qs):
+    """make kde from sample data"""
+    kde = gaussian_kde(sample)
+    ps = kde(qs)
+    pmf = Pmf(ps, qs)
+    pmf.normalize()
+    return pmf
