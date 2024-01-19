@@ -65,6 +65,7 @@ def make_mixture(pmf:Pmf, pmf_seq:list or tuple)->Pmf:
     return Pmf(total)
 
 def plt_default(x_label:str)->None:
+    sns.set(style = 'whitegrid')
     plt.xlabel(x_label)
     plt.ylabel("PMF")
     plt.legend()
@@ -87,3 +88,34 @@ def kde_from_sample(sample, qs):
     pmf = Pmf(ps, qs)
     pmf.normalize()
     return pmf
+
+import warnings
+
+class SuppressWarning:
+    def __enter__(self):
+        warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        warnings.filterwarnings("default", category=UserWarning, module="matplotlib")
+
+
+def decorate(**options):
+    """Decorate the current axes.
+
+    Call decorate with keyword arguments like
+    decorate(title='Title',
+             xlabel='x',
+             ylabel='y')
+
+    The keyword arguments can be any of the axis properties
+    https://matplotlib.org/api/axes_api.html
+    """
+    ax = plt.gca()
+    ax.set(**options)
+
+    handles, labels = ax.get_legend_handles_labels()
+    if handles:
+        ax.legend(handles, labels)
+
+    with SuppressWarning():
+        plt.tight_layout()
