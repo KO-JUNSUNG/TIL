@@ -40,12 +40,17 @@
 
 
 - Transformer
+
+![Transformer](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbty7Lc%2FbtsEhWeNKS1%2FuVbMovBxd4NK7HwQMQOR70%2Fimg.png)
   - Advantage:
     - Parallel processing by using attention mechanism (can process information for each position in the input sequence simultaneously)
     - Modular structure: Allows easy addition or removal of components, making it adaptable to different tasks and allowing easy customization for specific domains
   - Disadvantage
     - Dependence on large amount of data
     - Inefficiency for very long sequences
+
+
+- 트랜스포머 구조에 대한 설명을 추가. 장점은 어디서로부터 기원하며, 단점은 어디서로부터 기원하는지.
  
 
 - Mamba 
@@ -58,13 +63,19 @@
 
   - But it's not proven yet whether it's good at actual scale of model (over 7B parameters). 
 
+- 맘바가 어떤 구조이고, 왜 이런 성능을 낼 수 있는지에 대한 설명과 이미지 파일을 추가
+- 어떤 이유 때문에 맘바가 트랜스포머보다 빠른지에 대해서 상세한 설명이 필요함
+
 # Research objectives and questions
 
-- __Using 'Mamba' instead of 'Transformer' works well on diffusion based zero-shot learning Text-to-Speech?__
+- __Using 'Mamba' instead of 'Transformer' works well on Non Autoregressive based zero-shot learning Text-to-Speech?__
 
 # Methodology
 
-- Based on SOTA model under diffusion models, try adaptation and transfer learning
+- Based on model 'VITS', conditional variational autoencoder TTS system,try adaptation and transfer learning
+
+![VITS](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbkQQCP%2FbtsElKqKTGR%2FJK41BqvqqcK5TRCxeKKYPK%2Fimg.png)
+
 - In HierSpeech++, they trained the model with a batch size of 160 for 1,000k stemps on eight NVIDIA A6000 GPUs.
 - LibriTTS, Libri-light, and multi-speaker speech synthesis datasets on AIHub 
 
@@ -82,7 +93,9 @@
 
 # References
 
-- Remaining SPEECH: A Scoping Review of Deep Learning-powered Speech Conversion
-- SH Lee, HierSpeech++: Bridging the Gap between Semantic and Acoustic Representation of Speech by Hierarchical Variational Inference for Zero-Shot Speech Synthesis, IEEE
-- Ashish Vaswani, Attention Is All You Need, Google Brain
-- Albert Gu and Tri Dao, Mamba: Linear-Time Sequence Modeling with Selective State Spaces, Machine Learning Department Carnegie Mellon University
+- Sang-Hoon Lee, Ha-Yeong Choi, Seung-Bin Kim, Seong-Whan Lee. "HierSpeech++: Bridging the Gap between Semantic and Acoustic Representation of Speech by Hierarchical Variational Inference for Zero-Shot Speech Synthesis.", arXiv:2311.12454 (2023).
+
+- Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia. "Attention Is All You Need." arXiv preprint arXiv:1706.03762 (2017).
+
+- Albert Gu ,Tri Dao. "Mamba: Linear-Time Sequence Modeling with Selective State Spaces." arXiv:2312.00752 (2023)
+- Kim, Jaehyeon, Jungil Kong, and Juhee Son. "Conditional Variational Autoencoder with Adversarial Learning for End-to-End Text-to-Speech." arXiv preprint arXiv:2106.06103 (2021).
