@@ -43,6 +43,7 @@ __= 내가 문제를 확실히 이해했다는 ppt 를 작성__
 Virtual Structure: easy to set parameteres to complete the obstacle avoidence
 
 Behavior based: difficult to define the overall formation behavior and to obtain the accurate mathematical description -->
+![Virtual Structure](https://media.springernature.com/m685/springer-static/image/art%3A10.1007%2Fs42405-019-00180-7/MediaObjects/42405_2019_180_Fig1_HTML.png)
 
 1. 입력정보 정의
    1. 드론들 사이의 상대적인 거리
@@ -97,15 +98,21 @@ ISSN 1000-9361, https://doi.org/10.1016/j.cja.2023.07.030.__
 
 <!-- leader follower 2014년-->
 
-[4] “Consensus-based cooperative formation control with collision avoidance for a multi-UAV system | IEEE Conference Publication | IEEE Xplore,” ieeexplore.ieee.org. https://ieeexplore.ieee.org/document/6858777 (accessed Feb. 08, 2024).
+[[4]](https://ieeexplore.ieee.org/document/6858777) “Consensus-based cooperative formation control with collision avoidance for a multi-UAV system | IEEE Conference Publication | IEEE Xplore,” ieeexplore.ieee.org. https://ieeexplore.ieee.org/document/6858777 (accessed Feb. 08, 2024).
 ‌
 <!-- behavior 2014년-->
 
-[5] J.L. Lin, K.S. Hwang, Y.L. Wang
+[[5]](https://ieeexplore.ieee.org/iel7/5962385/6104215/06646274.pdf?casa_token=UzM-82WG2MUAAAAA:_NBtv5QsIE93RnNP9tNrZqKkVSq_d6oXRqlq6cXD6vvjodEHoIJgjwT9taQNqb7X_8-aypDMpQ) J.L. Lin, K.S. Hwang, Y.L. Wang
 "A simple scheme for formation control based on weighted behavior learning"
 IEEE Trans Neural Netw Learn Syst, 25 (6) (2014), pp. 1033-1044
 DOI: 10.1109/TNNLS.2013.2285123
 
+<!--Virtual Sturcutre-->
+[[6]](https://doi.org/10.1007/s42405-019-00180-7) Zhang, B., Sun, X., Liu, S. et al. "Formation Control of Multiple UAVs Incorporating Extended State Observer-Based Model Predictive Approach." Int. J. Aeronaut. Space Sci. 20, 953–963 (2019). https://doi.org/10.1007/s42405-019-00180-7
+
+
+<!-- 목표와 가장 비슷해 보이는 논문, leader follower 베이스 논문 같음-->
+[[7]](https://doi.org/10.1007/978-3-031-19759-8_7) Brandstätter, A., Smolka, S.A., Stoller, S.D., Tiwari, A., Grosu, R. (2022). Towards Drone Flocking Using Relative Distance Measurements. In: Margaria, T., Steffen, B. (eds) Leveraging Applications of Formal Methods, Verification and Validation. Adaptation and Learning. ISoLA 2022. Lecture Notes in Computer Science, vol 13703. Springer, Cham. https://doi.org/10.1007/978-3-031-19759-8_7
 
 # 해야하는 일
 
