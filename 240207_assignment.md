@@ -88,13 +88,13 @@ ISSN 0029-8018, https://doi.org/10.1016/j.oceaneng.2022.111148.
 
 
 <!-- Leader follower 2023 년-->
-__[[3]](https://doi.org/10.1016/j.cja.2023.07.030) Hanlin SHENG, Jie ZHANG, Zongyuan YAN, Bingxiong YIN, Shengyi LIU, Tingting Bai, Daobo WANG,
+[[3]](https://doi.org/10.1016/j.cja.2023.07.030) Hanlin SHENG, Jie ZHANG, Zongyuan YAN, Bingxiong YIN, Shengyi LIU, Tingting Bai, Daobo WANG,
 "New multi-UAV formation keeping method based on improved artificial potential field",
 Chinese Journal of Aeronautics,
 Volume 36, Issue 11,
 2023,
 Pages 249-270,
-ISSN 1000-9361, https://doi.org/10.1016/j.cja.2023.07.030.__
+ISSN 1000-9361, https://doi.org/10.1016/j.cja.2023.07.030.
 
 <!-- leader follower 2014년-->
 
@@ -108,20 +108,16 @@ IEEE Trans Neural Netw Learn Syst, 25 (6) (2014), pp. 1033-1044
 DOI: 10.1109/TNNLS.2013.2285123
 
 <!--Virtual Sturcutre-->
-[[6]](https://doi.org/10.1007/s42405-019-00180-7) Zhang, B., Sun, X., Liu, S. et al. "Formation Control of Multiple UAVs Incorporating Extended State Observer-Based Model Predictive Approach." Int. J. Aeronaut. Space Sci. 20, 953–963 (2019). https://doi.org/10.1007/s42405-019-00180-7
+__[[6]](https://doi.org/10.1007/s42405-019-00180-7) Zhang, B., Sun, X., Liu, S. et al. "Formation Control of Multiple UAVs Incorporating Extended State Observer-Based Model Predictive Approach." Int. J. Aeronaut. Space Sci. 20, 953–963 (2019). https://doi.org/10.1007/s42405-019-00180-7__
 
 
 <!-- 목표와 가장 비슷해 보이는 논문, leader follower 베이스 논문 같음-->
-[[7]](https://doi.org/10.1007/978-3-031-19759-8_7) Brandstätter, A., Smolka, S.A., Stoller, S.D., Tiwari, A., Grosu, R. (2022). Towards Drone Flocking Using Relative Distance Measurements. In: Margaria, T., Steffen, B. (eds) Leveraging Applications of Formal Methods, Verification and Validation. Adaptation and Learning. ISoLA 2022. Lecture Notes in Computer Science, vol 13703. Springer, Cham. https://doi.org/10.1007/978-3-031-19759-8_7
+__[[7]](https://doi.org/10.1007/978-3-031-19759-8_7) Brandstätter, A., Smolka, S.A., Stoller, S.D., Tiwari, A., Grosu, R. (2022). Towards Drone Flocking Using Relative Distance Measurements. In: Margaria, T., Steffen, B. (eds) Leveraging Applications of Formal Methods, Verification and Validation. Adaptation and Learning. ISoLA 2022. Lecture Notes in Computer Science, vol 13703. Springer, Cham. https://doi.org/10.1007/978-3-031-19759-8_7__
 
 # 해야하는 일
 
-- [] 용어, 파라미터 설명
-- [] 파라미터를 활용하여 상대적인 속도, 위치를 어떻게 추정하는지에 대한 설명
-- [] SOM algorithm 을 사용해서 어떻게 localization 을 적용할 것인가에 대한 설명
-
-- [] new multi-UAV formation keeping method 를 중점적으로 탐구. 해당 논문의 레퍼런스 논문을 따라가며 읽을 것
-- [] 레퍼런스 표기법이 지금 지저분하므로, 나중에 한꺼번에 교정할 것
+- [] 상대거리를 어떻게 측정하는지에 대해 제대로 학습하기 (사용 용어, 정의 기준)
+- [] formation keeping에 대해 각각의 알고리즘이 어떻게 작동하는지에 대해 설명하기
 
 <!-- 
 ## Additional information
