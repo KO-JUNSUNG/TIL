@@ -1,27 +1,6 @@
-
-# 수요일까지의 목표
-
-
-__= 내가 문제를 확실히 이해했다는 ppt 를 작성__
-
-- 현재 마주한 문제는 이렇다.
-- 문제를 보다 구체화하여 세부적으로 접근한다면, [1,2,3] 의 문제가 있다.
-- x,y,z 방식이 있는데, 이 중 x로 접근할 것이다. 
-- 그 이유는 x` 한 이유에서 근거한다. 
-- 예상되는 문제점은 이와 같다.
-- 이를 방비하기 위해 이런 대안을 내놓을 것이다. 
-- 앞으로의 계획은 이러하다.
-- 과제제안서를 바탕으로 용어를 정리하고, 생각을 develop 해서 SOM을 이렇게 사용해보겠다는 방향으로 하면 될 듯? 
-
-# Flow
-
-- 월요일까지 ppt를 완성
-- 화요일에 발표를 준비, 예상 질문을 작성하고 부족한 부분을 보충
-- 수요일에 발표
-
 # 과제 정의
 
-- 절대좌표(GPS)가 없는 상태에서, drone들이 어떻게 해야 서로의 상대적 거리 정보만을 가지고 "특정 형태의 대형(ex:삼각뿔)"을 만들고 유지할 수 있을까?
+- 절대좌표(GPS)가 없는 상태에서, drone들이 어떻게 해야 유클리드 거리 정보만을 가지고 "특정 형태의 대형(ex:삼각뿔)"을 만들고 유지할 수 있을까?
 
 - __Keyword: UAV formation keeping, Formation keeping, Formation control__
 
@@ -32,7 +11,7 @@ __= 내가 문제를 확실히 이해했다는 ppt 를 작성__
 ![드론 제어방식](https://post-phinf.pstatic.net/MjAxODA0MTBfMTk2/MDAxNTIzMzQ2OTM0MzA5.-Fa0xf_x-T5MG4GTGQ3a_zz-hyvnCzcSsf0L8ogcj1Ig.DUQ8akgKlqjCTVIGFD5VV2A_8e8p_8r6WCg9K9WnAMgg.JPEG/10.jpg?type=w1200)
 이미지 출처: [한국방위산업진흥회](https://post.naver.com/viewer/postView.nhn?volumeNo=14803929&memberNo=38486222)
 
-   - 각 알고리즘의 장단점
+2. 각 알고리즘의 장단점
 
 | |Leader-follower| Virtual Structure| Behavior|
 |------------|---------------|------------------------|---------|
@@ -43,26 +22,28 @@ __= 내가 문제를 확실히 이해했다는 ppt 를 작성__
 Virtual Structure: easy to set parameteres to complete the obstacle avoidence
 
 Behavior based: difficult to define the overall formation behavior and to obtain the accurate mathematical description -->
+
+3. 결정된 모델
+
 ![Virtual Structure](https://media.springernature.com/m685/springer-static/image/art%3A10.1007%2Fs42405-019-00180-7/MediaObjects/42405_2019_180_Fig1_HTML.png)
 
-1. 입력정보 정의
-   1. 드론들 사이의 상대적인 거리
-      1. 거리 정보가 품고 있는 정보
-      2. 드론들 사이의 상대적인 거리는 어떻게 측정되는가?
-         - UWB 센서를 사용하여 상대적 위치를 측위(연구제안서 9 페이지)
-      3. 상대적 거리를 측정하는 데 어떤 변수들이 사용되는가?
-         - $P_{i}$ = 수신신호강도
-         - $\phi_{i}$ = 방위각
-         - $\alpha_{i}$ = 고도각 
 
-2. 입력 정보의 특성
-3. 특성을 고려한 최적의 방법
+## 결정된 모델, Virtual Structure 을 구현하는 방법
+
+1. Self organizing Map 방법
+2. Artificial potential field 방법
 
 
 ## 용어 정의
 
-- 거리 정보 = 수신 신호 강도(RSS; Received Signal Strength) & 도달 각도(AOA; Arrival of Angle) = $\hat{P_{i}}, \hat{\phi_{i}}, \hat{\alpha_{i}}$
-- Relative distance: 드론들간의 상대적인 위치 추정에 필요한 parameter들을 이하에 정리
+- 거리 정보 = 
+
+# 해야하는 일
+
+- [] 상대거리를 어떻게 측정하는지에 대해 제대로 학습하기 (사용 용어, 정의 기준)
+- [] formation keeping에 대해 각각의 알고리즘이 어떻게 작동하는지에 대해 설명하기
+
+
 
 
 
@@ -107,18 +88,19 @@ ISSN 1000-9361, https://doi.org/10.1016/j.cja.2023.07.030.
 IEEE Trans Neural Netw Learn Syst, 25 (6) (2014), pp. 1033-1044
 DOI: 10.1109/TNNLS.2013.2285123
 
-<!--Virtual Sturcutre-->
+<!--Virtual Sturcutre, 28 citations 96 percentile-->
 __[[6]](https://doi.org/10.1007/s42405-019-00180-7) Zhang, B., Sun, X., Liu, S. et al. "Formation Control of Multiple UAVs Incorporating Extended State Observer-Based Model Predictive Approach." Int. J. Aeronaut. Space Sci. 20, 953–963 (2019). https://doi.org/10.1007/s42405-019-00180-7__
 
 
-<!-- 목표와 가장 비슷해 보이는 논문, leader follower 베이스 논문 같음-->
-__[[7]](https://doi.org/10.1007/978-3-031-19759-8_7) Brandstätter, A., Smolka, S.A., Stoller, S.D., Tiwari, A., Grosu, R. (2022). Towards Drone Flocking Using Relative Distance Measurements. In: Margaria, T., Steffen, B. (eds) Leveraging Applications of Formal Methods, Verification and Validation. Adaptation and Learning. ISoLA 2022. Lecture Notes in Computer Science, vol 13703. Springer, Cham. https://doi.org/10.1007/978-3-031-19759-8_7__
-
-# 해야하는 일
-
-- [] 상대거리를 어떻게 측정하는지에 대해 제대로 학습하기 (사용 용어, 정의 기준)
-- [] formation keeping에 대해 각각의 알고리즘이 어떻게 작동하는지에 대해 설명하기
-
+<!-- Leader-follower, SOM algorithm, 43 citations 93th percentile-->
+[[7]](https://doi.org/10.1016/j.oceaneng.2020.108048)Yan-Li Chen, Xi-Wen Ma, Gui-Qiang Bai, Yongbai Sha, Jun Liu,
+Multi-autonomous underwater vehicle formation control and cluster search using a fusion control strategy at complex underwater environment,
+Ocean Engineering,
+Volume 216,
+2020,
+108048,
+ISSN 0029-8018,
+https://doi.org/10.1016/j.oceaneng.2020.108048.
 <!-- 
 ## Additional information
 
@@ -134,9 +116,60 @@ __[[7]](https://doi.org/10.1007/978-3-031-19759-8_7) Brandstätter, A., Smolka, 
 - SOM을 가지고 Localization 을 어떻게 하는가? 
   - (summary of paper: Wireless Localization Using Self-Organizing Maps) -->
 
+<!--
+$\left\{\begin{matrix}
+ \dot{p_{i}} = u_{i}\\
+\dot{u_{i}} = \varrho_{i}
+\end{matrix}\right. ,(8)$
+
+$p_{i},u_{i}$ are the position and velocity of the ith particle in the inertial frame. $\varrho_{i}$ are the control input of the ith particle.
+
+$\varrho_{i} = c_{1}(p_{ri}-p_{i}) + c_{2}(u_{ri}-u_{i}) + F_{i} ,(9)$
+
+$c_{1}$ is the position error feedback coefficient, $c_{2}$ is the speed error feedback coefficient. $p_{ri}$ and $u_{ri}$ are respectively the position and speed of the ith mass point correspoonding to the expected virtual structure in the inertial frame. $F_{i} = -\triangledown_{qi} \mathfrak{V}(q)$ is the negative gradient term of the artificial potential field to realize collision avoidance between particles. Simplify $F_{i}$ to 0, the simplified control input is
+
+$\varrho_{i} = c_{1}(p_{ri}-p_{i}) + c_{2}(u_{ri}-u_{i}), (10)$
+
+Substitute Eq.(10) into Eq.(8), we get (11).
+
+$\ddot{p_{i}} + c_{2}\dot{p_{i}} + c_{1}p_{i} = c_{2}\dot{p_{ri}} + c_{1}\dot{p_{ri}}, (11)$
+
+It appears to be a lninear second-order system. To make the system stable, we should make $c_{1}>0$, $c_{2}<0$ according to the Hurwite criterion.
 
 
+The potential field force is only used for collision avoidance, so the design of the artificial potential filed can be simplified. Considering that the particle i is in the potential filed generated by other particles nearby, the total potential energy of the ith particle can be expressed as 
+
+$\mathfrak{V}(p) = \sum_{j,i=1}^{N}\zeta(||p_{j} - p_{i}||), j\neq i (12)$
+
+$\phi(x)$ is the potential energy function, and $||\cdot||$ is the modulus of the vector. That is the artificial potential field energy is a function of the relative distance of the particles. Since only considering the artificial potential field for collision avoidance, rather than organizing the formation, only the potential field is required to have repulsive force. Construct potential function 
+
+$\zeta(z) =\left\{\begin{matrix}
+\frac{1}{2}k(\frac{1}{z} - \frac{1}{R}) &, 0 < z \leq R  \\
+0 &  ,z>R\\
+\end{matrix}\right. (13)$
+
+k is the potential field strength coefficient and its selection should consider the inertia of the AUV and the control output of the actuator; if k is too small, it is not conducive to safe collision avoidance; if k is too large, it may exceed the output range of the actuator which has no practical meaning; R is the range of potential field.
 
 
+In order to avoid interference of the artificial potential function on the formation, the distance between the particles in the final formation should be greater than the range of potential function, namely
+
+$||p_{j}-p_{i}||\geq R   ,\forall (i,j) \in N, j\neq i (14)$
+The artificial potential field effect in the formation process can be regarded as interference to the second-order system. The existence of the negative gradient term of the artificial potential field causes the particle to move in the direction where the energy of the artificial potential field is reduced, thereby avoiding collision.
+
+Compared with the artificial potential field method, the virtual structure method is more conducive to the organization of formation.
+This paper is designed to generate and transform the formation after the AUV reaching the specified depth, so the position and speed of the simplified formation reference point in the system are expressed as $p_{r} \in \mathbb{R}^{2}$, $u_{r} \in \mathbb{R}^{2}$. We have
 
 
+$\left\{\begin{matrix}
+p_{ri}&p_{r} + R(\theta)\mathfrak{L}r_{i}  \\
+u_{ri}&u_{r} + \dot{R}(\theta)\dot{\mathfrak{L}}r_{i}  \\
+\end{matrix}\right. (15)$
+
+where $R(\theta) = \begin{bmatrix}
+cos\theta &  -sin\theta\\
+sin\theta &  cos\theta\\
+\end{bmatrix}$ represents the formation rotation matrix of the virtual structure; $\mathfrak{L} = \begin{bmatrix}
+l &  0\\
+0 &  l\\
+\end{bmatrix}$ is the formation zoom factor; $r_{i}$ is the psotion of the ith mass point relative to the formation reference constant, the formation shape remains constant; if $\theta$ is expressed as the direction of the velocity vector of the formation reference point, the attitude of the formation is remain unchanged. Since the collision is adopted for the change of the formation shape, that is $r_{i} \to r_{i}^{'}$, We avoid the design of $\dot r_{i}$ which simplifies the formation change.
+-->
