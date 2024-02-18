@@ -117,7 +117,7 @@ $h(i,j) = exp(-\frac{dist_{hop}(i,j)^2}{2r(n)}), \text{new}$
 ## 기본적인 SOM 구현
 
 1. SOM의 알고리즘을 구현한 파이썬 라이브러리, MiniSOM 을 사용
-
+2. MiniSOM을 사용하여 삼각형을 만드는 예제 구현
 
 
 
