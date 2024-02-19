@@ -20,9 +20,23 @@
 
 # 문제 정의
 
-- No GPS, No interconnection information
+- No GPS, No distance or angle information between drones
 - Drone들이 날고 있는 임의의 좌표가 존재할 때, 그 좌표와 원점 사이의 Euclidean 거리 정보만이 존재한다. 
 - 현 상태에서, drone들이 어떻게 해야 "특정 형태의 대형(ex:삼각뿔)"을 만들고 유지할 수 있을까?
+
+# 접근
+
+1. 순서를 바꿔, 가상의 relative information을 통해 먼저 일정 formation(ex: triangle)을 갖추도록 학습된 SOM을 준비함
+2. 센서와 드론 사이의 euclidean information(r1,r2,r3,r4)만으로 SOM 알고리즘을 통해 만들어진 가상의 도형이 존재할 수 있는 위치를 추정함
+
+# 발생 문제
+
+1. SOM 알고리즘은 relative information(=Interconnected information)이 있어야만 구성될 수 있음
+2. relative information(=Interconnected information)이 없다면 SOM이 올바르게 도형을 형성하고 있는지 아닌지 확인이 불가능함
+3. = $loss function(||r-r_{i}||^2)$과 같은 문제
+
+--> 추가적인 제약이 필요함
+
 
 # 알고리즘 정의 (Research Self-Organizing Maps; SOM)
 
@@ -33,12 +47,12 @@
 
 ## SOM의 작동방식
 
-- Input sample 과 map의 weight $w_{j}$들이 d 차원의 실수값 벡터라고 가정하면, 학습 알고리즘은 다음과 같이 구성됨 
+- Input sample과 map의 weight $w_{j}$들이 d 차원의 실수값 벡터라고 가정하면, 학습 알고리즘은 다음과 같이 구성됨 
 
 1. Sampling: 훈련 세트에서 샘플을 추출하여 사용함. 이후 현재 반복에서의 샘플을 x(n)이라고 하겠음
 2. Competition: 추출된 샘플 x(n)은 맵의 가중치(이 때, 가중치 하나는 노드 하나에 대응)에 대해 판별함수를 통해 비교됨. 판별함수를 지난 값들 중 가장 큰 값을 지닌 노드가 Best Matching Unit, BMU가 되어 선택됨. 판별함수가 유클리드 거리를 통해 결정할 경우, 판별함수는 다음과 같음
 
-$BMU(n)=\text{argmin}_{j} x(n) - w_j(n)$
+$BMU(n)=\text{argmin}_{j}|| x(n) - w_j(n)||$
 
 - j = 노드의 인덱스, 2차원 격자일 경우 j = (i,k)
 - $w_{j} =$ 현재 노드의 가중치 벡터
@@ -67,14 +81,13 @@ $h(i,j) = exp(-\frac{dist_{map}(i,j)^2}{2r(n)})$
 - $dist_{map}(i,j)^2$는 두 개의 노드 사이의 거리를 뜻함. BMU에 가까울수록 값이 커지고, 멀수록 값이 작아짐
 - r(n)은 영향을 받는 범위를 뜻함. 전체학습률 $\eta$와 마찬가지로, 매 iteration마다 단조적으로 감소함
 
-## Base SOM to Localization SOM(Wiresless Localization Using Self-organizing Maps)
-
-<!--
-- SOM은 훈련이 끝나면 각 노드가 입력공간을 대표하는 모델 벡터를 포함하게 됨. 이렇게 훈련된 SOM을 이용해 새로운 혹은 이전에 본 적 없는 입력 데이터를 분류하거나 특정 패턴을 인식하는 데 사용할 수 있음. 
+- 이렇게 훈련이 끝나면 SOM의 각 노드는 입력공간을 대표하는 모델 벡터를 포함하게 됨. 이렇게 훈련된 SOM을 이용해 새로운 혹은 이전에 본 적 없는 입력 데이터를 분류하거나 특정 패턴을 인식하는 데 사용할 수 있음. 
 
 - 즉 새로운 입력 데이터가 주어지면 주어진 샘플과 가장 일치하는 Best Matching Unit (BMU)의 가중치 벡터를 찾아 입력 데이터를 분류하거나 특성을 인식할 수 있음
 
-- 뿐만 아니라, 각 BMU는 2차원 그리드에서 위치를 정의하므로 SOM은 입력 공간의 데이터를 노드 격자로 정의된 평면으로 나타낼 수 있음. 초기에 탐사 단계에서 센서에 의해 수집된 정보를 기반으로 훈련된 SOM은 가상의 지도로 활용되어 새로운 데이터를 격자 위치로 변환하거나 다양한 환경(예: 다른 방)을 인식하는 데 사용될 수 있음 -->
+- 뿐만 아니라, 각 BMU는 2차원 그리드에서 위치를 정의하므로 SOM은 입력 공간의 데이터를 노드 격자로 정의된 평면으로 나타낼 수 있음. 초기에 탐사 단계에서 센서에 의해 수집된 정보를 기반으로 훈련된 SOM은 가상의 지도로 활용되어 새로운 데이터를 격자 위치로 변환하거나 다양한 환경(예: 다른 방)을 인식하는 데 사용될 수 있음 
+
+## Base SOM to Localization SOM(Wiresless Localization Using Self-organizing Maps)
 
 - SOM 기법의 핵심은 업데이트 수식임
 
@@ -111,22 +124,12 @@ $h(i,j) = exp(-\frac{dist_{hop}(i,j)^2}{2r(n)}), \text{new}$
         - $(x_{j}, y_{j}) += \eta(n)h[(x,y)-(x_{j}, y_{j})]$
         
 
-![alt text](image-1.png)
-
-
 ## 기본적인 SOM 구현
 
-1. SOM의 알고리즘을 구현한 파이썬 라이브러리, MiniSOM 을 사용
-2. MiniSOM을 사용하여 삼각형을 만드는 예제 구현
 
 
-
-## 나의 구현 방법
-
-1. 순서를 바꿔, 가상의 relative information을 통해 먼저 일정 formation(ex: triangle)을 갖추도록 학습된 SOM을 준비함
-2. 학습된 SOM 을 센서와 드론 사이의 euclidean information만으로 위치를 추정함
 
 ## 시뮬레이션 데이터로 테스트
 
 - 실험 조건 정의(= 하이퍼파라미터 정보 정의)
-- 
+- 내일까지 요청사항을 ppt로 정리하기
