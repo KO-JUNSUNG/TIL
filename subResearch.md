@@ -143,9 +143,9 @@ $A$, $B$ 는 $A = U_A\Sigma_A Z$ 와 $B = U_B\Sigma_B Z$ 로 분해할수 있고
 
 이 $Z$ 가 행렬 $S$,$M$ 를 동시에 대각화 할수있다.
 
-$$ A^TA = Z^T\Sigma_A^TU_A^TU_A\Sigma_A Z^T = Z^T(\Sigma_A^T \Sigma_A)Z \\
+$$A^TA = Z^T\Sigma_A^TU_A^TU_A\Sigma_A Z^T = Z^T(\Sigma_A^T \Sigma_A)Z$$
 
-B^TB = Z^T \Sigma_B^TU_B^TU_B \Sigma_B Z^T = Z^T(\Sigma_B^T \Sigma_B)Z $$
+$$B^TB = Z^T \Sigma_B^TU_B^TU_B \Sigma_B Z^T = Z^T(\Sigma_B^T \Sigma_B)Z$$
 
 위 식을 보면 동일한 행렬 $Z$ 로 대칭인 두 양의 정부호 행렬 $S$, $M$ 을 대각화 한다. 대각화하는데 직교성은 필수요소가 아니기 때문에 $Z$ 의 크기를 $\Sigma_A^T \Sigma_A + \Sigma_B^T \Sigma_B = I_n$ 으로 조절할 수 있다.
 
